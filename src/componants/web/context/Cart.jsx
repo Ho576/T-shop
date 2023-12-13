@@ -69,10 +69,52 @@ export default function CartContextProvider({children}) {
             console.log(error);
         }
     }
+    const clearCartContext = async ()=>{
+        try{
+            const token = localStorage.getItem("userToken");
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear` ,null,
+            {headers:{Authorization:`Tariq__${token}`}}
+            )
+            setCount(0);
+            return data;
+        }
+        catch (error){
+            console.log(error);
+        }
+    }
 
+    const incraseQuantityContext = async (productId)=>{
+        try{
+            const token = localStorage.getItem("userToken");
+            console.log(5,productId)
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`,{productId},
+            {headers:{Authorization:`Tariq__${token}`}}
+            )
+            console.log(data)
+           
+        }
+        catch (error){
+            console.log(error);
+        }
+    }
+    const decraseQuantityContext = async (productId)=>{
+        try{
+            
+            const token = localStorage.getItem("userToken");
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`,{productId},
+            {headers:{Authorization:`Tariq__${token}`}}
+            )
+            
+        }
+        catch (error){
+            console.log(error);
+        }
+    }
+    
+    
     
   return (
-    <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount}}>
+    <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount,clearCartContext,incraseQuantityContext,decraseQuantityContext}}>
         {children}
     </CartContext.Provider>
   )

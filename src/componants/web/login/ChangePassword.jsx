@@ -22,7 +22,7 @@ export default function ChangePassword() {
        
         console.log(data)
         if(data.message == 'success'){
-            toast.success('login succesfuly', {
+            toast.success('changed succesfuly', {
                 
                 position: "top-right",
                 autoClose: 500,

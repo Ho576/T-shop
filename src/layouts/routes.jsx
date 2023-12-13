@@ -14,6 +14,10 @@ import ProtectedRoute from '../componants/web/protectedRoute/ProtectedRoute';
 import Profile from '../componants/web/profile/Profile';
 import SendCode from '../componants/web/login/SendCode';
 import ChangePassword from '../componants/web/login/ChangePassword';
+import UserInfo from '../componants/web/profile/UserInfo';
+import UserContact from '../componants/web/profile/UserContact';
+import CreateOrder from '../componants/web/cart/CreateOrder';
+import GetOrders from '../componants/web/cart/GetOrders';
 
 export const router = createBrowserRouter([
     {
@@ -26,7 +30,23 @@ export const router = createBrowserRouter([
           },
           {
             path:'profile',
-            element:<ProtectedRoute><Profile /></ProtectedRoute>
+            element:<ProtectedRoute><Profile /></ProtectedRoute>,
+            children:[
+              {
+                //path:'',
+                index:true,
+                element:<h2>Welcom to profile</h2>
+              },
+              {
+                path:'contact',
+                element:<UserContact />
+              },
+              {
+                path:'info',
+                element:<UserInfo />
+              },
+
+            ]
           },
           {
             path:'login',
@@ -60,7 +80,15 @@ export const router = createBrowserRouter([
           },
           {
             path:'cart',
-            element:<ProtectedRoute><Cart /></ProtectedRoute>
+            element:<ProtectedRoute><Cart /></ProtectedRoute>,
+          },
+          {
+            path:'createorder',
+            element:<ProtectedRoute><CreateOrder /></ProtectedRoute>
+          },
+          {
+            path:'getorders',
+            element:<ProtectedRoute><GetOrders /></ProtectedRoute>
           },
           {
             path:'*',
