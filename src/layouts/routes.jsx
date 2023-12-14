@@ -18,6 +18,7 @@ import UserInfo from '../componants/web/profile/UserInfo';
 import UserContact from '../componants/web/profile/UserContact';
 import CreateOrder from '../componants/web/cart/CreateOrder';
 import GetOrders from '../componants/web/cart/GetOrders';
+import Loding from '../componants/web/loading/Loding';
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
               {
                 //path:'',
                 index:true,
-                element:<h2>Welcom to profile</h2>
+                element:<UserInfo />
               },
               {
                 path:'contact',
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
               {
                 path:'info',
                 element:<UserInfo />
+              },
+              {
+                path:'getorders',
+                element:<GetOrders />
               },
 
             ]
@@ -87,9 +92,10 @@ export const router = createBrowserRouter([
             element:<ProtectedRoute><CreateOrder /></ProtectedRoute>
           },
           {
-            path:'getorders',
-            element:<ProtectedRoute><GetOrders /></ProtectedRoute>
+            path:'loading',
+            element:<Loding/>
           },
+
           {
             path:'*',
             element:<h2>page not found --- web</h2>

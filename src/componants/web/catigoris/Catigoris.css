@@ -1,6 +1,24 @@
 .sImg{
     width: 150px;
     height: 150px;
-   
+   z-index: 2;
+   margin-top: 50px;
+   margin-bottom: 50px;
     
 }
+
+
+  
+  .my-swiper {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 200px;
+    background-color:cadetblue;
+    margin-top: 20px;
+  }
+  .swiper-scrollbar
+  {
+    visibility: hidden;
+  }

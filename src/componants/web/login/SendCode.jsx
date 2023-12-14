@@ -69,12 +69,20 @@ export default function SendCode() {
 
 
   return (
-    <div className="container">
-        <h2>send code</h2>
-        <form onSubmit={formik.handleSubmit} >
-          {renderInputs}  
-         <button type='submit'  disabled={!formik.isValid} >send code</button>
-        </form>
-        </div> 
+   
+<div className="container ">
+  <h2 className="text-center text-white">Send Code</h2>
+  <h2 >Send Code</h2>
+  <form onSubmit={formik.handleSubmit}>
+    <div className="form-group ">
+      {renderInputs}
+    </div>
+    <div className="form-group ">
+      <button type="submit" className="btn btn-primary" disabled={!formik.isValid}>
+        Send Code
+      </button>
+    </div>
+  </form>
+</div> 
   )
 }

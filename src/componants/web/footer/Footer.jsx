@@ -2,10 +2,8 @@ import React from 'react'
 
 export default function Footer() {
   return (
-
-    <>
     
-{/* <footer className="text-center text-lg-start bg-body-tertiary text-muted">
+<footer className="text-center text-lg-start bg-body-tertiary text-muted">
  
   <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
   
@@ -44,7 +42,7 @@ export default function Footer() {
         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
  
           <h6 className="text-uppercase fw-bold mb-4">
-            <i className="fas fa-gem me-3" />Company name
+            <i className="fas fa-gem me-3" />H - Shop
           </h6>
           <p>
             Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -105,13 +103,13 @@ export default function Footer() {
     </div>
   </section>
   <div className="text-center p-4" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
-    © 2021 Copyright:
-    <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2023 Copyright
+    <a className="text-reset fw-bold" href="https://mdbootstrap.com/"></a>
   </div>
-</footer> */}
+</footer> 
 
-<div>Footer</div>
 
-</>
+
+
   )
 }

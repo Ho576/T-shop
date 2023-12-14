@@ -37,7 +37,7 @@ export default function Profile() {
               <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
               <Link to={'/profile'} className="nav-link align-middle px-0">
-                <i className="fs-4 bi-house" /> <span className="ms-1 d-none d-sm-inline">{userData.userName} Profile</span>
+                <i className="fs-4 bi-house" /> <span className="ms-1 d-none d-sm-inline"></span>
               </Link>
             </li>
             <li>
@@ -50,6 +50,10 @@ export default function Profile() {
                 <li>
                   <Link to={'contact'} className="nav-link px-0"> <span className="d-none d-sm-inline">User </span>Content</Link>
                 </li>
+                <li>
+                  <Link to={'getorders'} className="nav-link px-0"> <span className="d-none d-sm-inline">User </span>Orders</Link>
+                </li>
+                
               </ul>
             </li>    
           </ul>

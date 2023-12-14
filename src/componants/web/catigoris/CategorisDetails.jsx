@@ -18,15 +18,32 @@ export default function CategorisDetails() {
         return <p>loading .......</p>
     }
   return (
-     <div className="products">
-        {data?.length?data.map((product)=>
-        <div className="product" key={product._id}>
-            <img src={product.mainImage.secure_url}/>
-            <h2>{product.name}</h2>
-            <Link to={`/products/${product._id}`}>Details</Link>
-
+    <div className="container">
+  <div className="row">
+    {data?.length ? (
+      data.map((product) => (
+        <div className="col-md-4 mb-4 mt-5" key={product._id}>
+          <div className="card">
+            <img
+              src={product.mainImage.secure_url}
+              className="card-img-top"
+              alt={product.name}
+            />
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <Link to={`/products/${product._id}`} className="btn btn-primary">
+                Details
+              </Link>
+            </div>
+          </div>
         </div>
-        ):<h2>no product</h2>}
-     </div>
+      ))
+    ) : (
+      <div className="col-12 mt-5">
+        <h2>No products</h2>
+      </div>
+    )}
+  </div>
+</div>
   )
 }

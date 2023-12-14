@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 export default function GetOrders() {
     const getOrders= async()=>{
@@ -28,9 +29,22 @@ export default function GetOrders() {
     { data?.map((order,index)=>(
 
 <div key={index} className='container order'>
+{console.log(order.products.productId)}
+{console.log(order.products[0].quantity)}
     <b>Order No {index+1}</b>
      <p>Address : {order.address}</p>
      <p>phoneNumber : {order.phoneNumber} </p>
+     <div className="productss">
+     <p>Products</p>
+     {
+        
+        order.products.map((product,index)=>(
+            <Link className='btn ml-0 btn-primary ob ' to={`/products/${product.productId}`} >{index+1}. product({product.quantity})</Link>)
+        )
+    }
+
+     </div>
+     
      <p>Coupon Name :{order.couponName} </p>
      <p>finalPrice : {order.finalPrice} </p>
      <p>paymentType : {order.paymentType} </p>

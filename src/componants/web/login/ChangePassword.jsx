@@ -86,11 +86,16 @@ export default function ChangePassword() {
 
   return (
     <div className="container">
-        <h2>change password</h2>
-        <form onSubmit={formik.handleSubmit} >
-          {renderInputs}  
-         <button type='submit'  disabled={!formik.isValid} >change</button>
-        </form>
+        <h2 className="text-center text-white">change password</h2>
+        <h2 className="text-center mb-4">Change Password</h2>
+  <form onSubmit={formik.handleSubmit}>
+    <div >
+      {renderInputs}
+      <button type="submit" className="btn btn-primary" disabled={!formik.isValid}>
+        Change
+      </button>
+    </div>
+  </form>
         </div> 
   )
 }

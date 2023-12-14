@@ -2,13 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import './Cart.css'
 import { CartContext } from './../context/Cart';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Cart() {
-
-
-  
+  let navigate=useNavigate();
   const {getCartContext,removeItemContext,clearCartContext,incraseQuantityContext,decraseQuantityContext} = useContext(CartContext);
   
 
@@ -17,18 +15,22 @@ export default function Cart() {
     return res;
   }
   const removeItem = async(productId)=>{
+    navigate('/loading');
     const res = await removeItemContext(productId);
     return res;
 }
 const clearCart = async()=>{
+  navigate('/loading');
   const res = await clearCartContext();
   return res;
 }
 const incraseItem = async(productId)=>{
+  navigate('/loading');
   const res = await incraseQuantityContext(productId);
   return res;
 }
 const decraseItem = async(productId)=>{
+  navigate('/loading');
   const res = await decraseQuantityContext(productId);
   return res;
 }
@@ -38,9 +40,8 @@ const decraseItem = async(productId)=>{
 
 
   
-  if(isLoading){
-    return <p>loading .....</p>
-  }
+  if(isLoading)  return <p>loading .....</p>
+  
 
 
   return (
@@ -171,7 +172,7 @@ const decraseItem = async(productId)=>{
                   <Link to={'/createorder'}>Create Order</Link>
                 </div>
                 <div className="checkout">
-                  <Link to={'/getorders'}>Get Orders</Link>
+                  <Link to={'/profile/getorders'}>Get Orders</Link>
                 </div>
                 <button className='btn btn-danger' onClick={clearCart}>Clear</button>
               </div>

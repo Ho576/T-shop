@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import './catigoris.css'
 
 import './Catigoris.css'
 import { Link } from 'react-router-dom';
@@ -26,19 +27,20 @@ export default function Catigoris() {
 
   return (
     <div className='container'>
-       <Swiper
-       modules={[Navigation, Pagination, Scrollbar]}
+     <Swiper
+      modules={[Navigation, Pagination, Scrollbar]}
       spaceBetween={50}
       slidesPerView={4.5}
-      loop = {true}
+      loop={true}
       autoplay={{
-        delay:3000
+        delay: 3000
       }}
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
+      className="my-swiper" // Add a class name to the Swiper container
     >
       {data?.categories.length ? data?.categories.map((category)=>
       <SwiperSlide key={category._id}>
