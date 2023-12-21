@@ -86,11 +86,9 @@ export default function CartContextProvider({children}) {
     const incraseQuantityContext = async (productId)=>{
         try{
             const token = localStorage.getItem("userToken");
-            console.log(5,productId)
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`,{productId},
             {headers:{Authorization:`Tariq__${token}`}}
             )
-            console.log(data)
            
         }
         catch (error){

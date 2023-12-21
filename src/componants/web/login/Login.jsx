@@ -96,14 +96,6 @@ export default function Login() {
     )
   return (
 
-    //  <div className="container">
-    //     <h2>sign in</h2>
-    //     <form onSubmit={formik.handleSubmit} >
-    //       {renderInputs}  
-    //      <button type='submit'  disabled={!formik.isValid} >Log in</button>
-    //      <Link to={'/forgetPassword'}>forgate password</Link>
-    //     </form></div> 
-
     <section className="vh-100" style={{backgroundColor: '#eee'}}>
   <div className="container h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">

@@ -1,17 +1,3 @@
-// import axios from 'axios';
-// import React, { useContext, useEffect, useState } from 'react'
-// import { UserContext } from '../context/User';
-
-   
-    
-//   return (
-//     <>
-//     <img className='w-25 p-3' src={userData.image.secure_url}/>
-//     <p>Name : {userData.userName}</p>
-//     <p>Email : {userData.email}</p>
-//     </>
-//   )
-// }
 import React, { useContext,useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../context/User';
@@ -37,12 +23,12 @@ export default function Profile() {
               <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
               <Link to={'/profile'} className="nav-link align-middle px-0">
-                <i className="fs-4 bi-house" /> <span className="ms-1 d-none d-sm-inline"></span>
+                <span className="ms-1 d-none d-sm-inline"></span>
               </Link>
             </li>
             <li>
               <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                <i className="fs-4 bi-speedometer2" /> <span className="ms-1 d-none d-sm-inline">User</span> </a>
+                 <span className="ms-1 d-none d-sm-inline">User</span> </a>
               <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                 <li className="w-100">
                   <Link to={'info'} className="nav-link px-0"> <span className="d-none d-sm-inline">User </span>Info</Link>

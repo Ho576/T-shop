@@ -29,8 +29,6 @@ export default function GetOrders() {
     { data?.map((order,index)=>(
 
 <div key={index} className='container order'>
-{console.log(order.products.productId)}
-{console.log(order.products[0].quantity)}
     <b>Order No {index+1}</b>
      <p>Address : {order.address}</p>
      <p>phoneNumber : {order.phoneNumber} </p>

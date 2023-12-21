@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Input from '../../pages/Input'
 import { useFormik } from 'formik'
 import {sendCodeSchema} from '../validayion/Validayion.js'
@@ -16,9 +16,7 @@ export default function SendCode() {
     };
 
     const onSubmit = async user=>{
-        console.log(4)
         const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/sendcode`,user);
-        console.log(5)
           if(data.message == 'success'){
             toast.success('sended succesfuly', {
                 

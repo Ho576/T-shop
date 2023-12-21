@@ -100,7 +100,6 @@ export default function Register() {
         errors={formik.errors}
         onChange={input.onChange||formik.handleChange}
         touched={formik.touched}
-        //setFieldTouched={formik.setFieldTouched}
         onBlur={formik.handleBlur}
 
         />

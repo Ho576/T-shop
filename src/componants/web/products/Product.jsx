@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../context/Cart';
+import ProdRev from './ProdRev';
 
 export default function Product() {
     const {productId}=useParams();
@@ -63,8 +64,10 @@ export default function Product() {
             <button className="btn btn-outline-info" onClick={() => addToCart(data._id)}>
               Add To Cart
             </button>
+            
           </div>
         </div>
+        <ProdRev revs={data.reviews}/>
       </div>
     </div>
   </div>
