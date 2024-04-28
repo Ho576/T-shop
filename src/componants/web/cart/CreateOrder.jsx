@@ -14,7 +14,7 @@ export default function CreateOrder() {
 
     const onSubmit = async user=>{
         const token = localStorage.getItem("userToken");
-        const {data} = await axios.post(`https://ecommerce-node4.vercel.app/order`,user,
+        const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/order`,user,
         {headers:{Authorization:`Tariq__${token}`}})
         if(data.message == 'success'){
             formik.resetForm();
