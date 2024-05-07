@@ -1,7 +1,9 @@
 import axios from "axios";
 import { createContext, useState } from "react"
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 
 export const CartContext = createContext(null);
 
@@ -12,7 +14,7 @@ export default function CartContextProvider({children}) {
     const addToCartContext = async(productId)=>{
         try{
 
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/cart`,{productId} ,
             {headers:{Authorization:`Tariq__${token}`}}
             )
@@ -40,7 +42,7 @@ export default function CartContextProvider({children}) {
     const getCartContext = async ()=>{
         try{
 
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.get(`${import.meta.env.VITE_API_URL}/cart` ,
             {headers:{Authorization:`Tariq__${token}`}}
             )
@@ -56,7 +58,7 @@ export default function CartContextProvider({children}) {
     }
     const removeItemContext = async (productId)=>{
         try{
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/removeItem`,{productId} ,
             {headers:{Authorization:`Tariq__${token}`}}
             )
@@ -71,7 +73,7 @@ export default function CartContextProvider({children}) {
     }
     const clearCartContext = async ()=>{
         try{
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear` ,null,
             {headers:{Authorization:`Tariq__${token}`}}
             )
@@ -85,7 +87,7 @@ export default function CartContextProvider({children}) {
 
     const incraseQuantityContext = async (productId)=>{
         try{
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`,{productId},
             {headers:{Authorization:`Tariq__${token}`}}
             )
@@ -98,7 +100,7 @@ export default function CartContextProvider({children}) {
     const decraseQuantityContext = async (productId)=>{
         try{
             
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`,{productId},
             {headers:{Authorization:`Tariq__${token}`}}
             )

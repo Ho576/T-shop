@@ -4,6 +4,10 @@ import Input from '../../pages/Input'
 import { useFormik } from 'formik'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+
 export default function CreateOrder() {
 
     const initialValues={
@@ -13,7 +17,7 @@ export default function CreateOrder() {
     };
 
     const onSubmit = async user=>{
-        const token = localStorage.getItem("userToken");
+        const token = cookies.get('userToken')
         const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/order`,user,
         {headers:{Authorization:`Tariq__${token}`}})
         if(data.message == 'success'){

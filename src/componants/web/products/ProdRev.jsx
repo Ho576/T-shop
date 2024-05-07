@@ -3,6 +3,9 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default function ProdRev({revs}) {
 const navigate = useNavigate();
@@ -12,7 +15,7 @@ const navigate = useNavigate();
         rating:0,
     };
     const onSubmit = async revv=>{
-        const token = localStorage.getItem("userToken");
+        const token = cookies.get('userToken');
         const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/products/${productId}/review`,revv
         ,{headers:{Authorization:`Tariq__${token}`}}
         );

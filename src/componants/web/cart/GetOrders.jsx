@@ -2,11 +2,14 @@ import axios from 'axios';
 import React from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default function GetOrders() {
     const getOrders= async()=>{
         try{
-            const token = localStorage.getItem("userToken");
+            const token = cookies.get('userToken');
             const {data}= await axios.get(`${import.meta.env.VITE_API_URL}/order`,
             {headers:{Authorization:`Tariq__${token}`}}
             )

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { Children, createContext, useEffect, useState } from 'react'
+import Cookies from 'universal-cookie';
 
 export let UserContext = createContext();
-
+const cookies = new Cookies();
 export default function UserContextProvider({children}) {
-    const [userToken,setUserToken] = useState(null);
+    const [userToken,setUserToken] = useState(cookies.get('userToken'));
     const [userData,setUserData]  = useState(null);
     const [loading,setLoading]=useState(true);
 

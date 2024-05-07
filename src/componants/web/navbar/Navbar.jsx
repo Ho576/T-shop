@@ -3,17 +3,24 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from './../context/User';
 import { CartContext } from './../context/Cart';
 import './Navbar.css'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default function Navbar() {
   
   let {count} = useContext(CartContext);
   let {userToken,setUserToken,userData,setUserData } =useContext(UserContext)
-  const logout =()=>{
-    localStorage.removeItem('userToken');
+ 
+  
+  const logout = () => {
+    // Remove userToken cookie
+    cookies.remove('userToken');
+  
+    // Clear userToken and userData from context
     setUserToken(null);
     setUserData(null);
-    
-  }
+  };
   
   return (
     <nav className="navbar navbar-expand-lg nb">
